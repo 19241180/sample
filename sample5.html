@@ -1,8 +1,11 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>無重力に挑戦！</title>
 </head>
-<html lang="ja">
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1"> 
+ 
 <body>
 <div id="txt">ここにスコアを表示</div>             <!-- スコアを表示するdiv要素 -->
 <canvas id="canvas" width="300" height="400"></canvas>  <!-- ボールを描くcanvas要素 -->
@@ -11,13 +14,6 @@
 var aX = 0, aY = 0, aZ = 0;                     // 加速度の値を入れる変数を3個用意
 var canvas = document.getElementById('canvas'); // canvas要素を取得 
 var context = canvas.getContext('2d');          // 絵を描く部品を取得
-
-  function displayData() {
-    var txt = document.getElementById("txt");   // データを表示するdiv要素の取得
-    txt.innerHTML = "x: " + aX + "<br>"         // x軸の値
-                  + "y: " + aY + "<br>"         // y軸の値
-                  + "z: " + aZ;                 // z軸の値
-}
  
 // ボールをクラス化
 class Ball {
@@ -140,7 +136,6 @@ function collision(obj1, obj2) {
         return false;                           // falseを返す
     }
 }
-
 </script>
-</body>
+ </body>
 </html>
