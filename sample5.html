@@ -10,12 +10,13 @@
 var aX = 0, aY = 0, aZ = 0;                     // 加速度の値を入れる変数を3個用意
 var canvas = document.getElementById('canvas'); // canvas要素を取得 
 var context = canvas.getContext('2d');          // 絵を描く部品を取得
- 
- window.addEventListener("devicemotion", (dat) => {
-    aX = dat.accelerationIncludingGravity.x;    // x軸の重力加速度（Android と iOSでは正負が逆）
-    aY = dat.accelerationIncludingGravity.y;    // y軸の重力加速度（Android と iOSでは正負が逆）
-    aZ = dat.accelerationIncludingGravity.z;    // z軸の重力加速度（Android と iOSでは正負が逆）
-});
+
+  function displayData() {
+    var txt = document.getElementById("txt");   // データを表示するdiv要素の取得
+    txt.innerHTML = "x: " + aX + "<br>"         // x軸の値
+                  + "y: " + aY + "<br>"         // y軸の値
+                  + "z: " + aZ;                 // z軸の値
+}
  
 // ボールをクラス化
 class Ball {
@@ -138,4 +139,5 @@ function collision(obj1, obj2) {
         return false;                           // falseを返す
     }
 }
+
 </script>
