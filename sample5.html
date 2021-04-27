@@ -14,23 +14,6 @@
 var aX = 0, aY = 0, aZ = 0;                     // 加速度の値を入れる変数を3個用意
 var canvas = document.getElementById('canvas'); // canvas要素を取得 
 var context = canvas.getContext('2d');          // 絵を描く部品を取得
-
- function request_permission() {
-    if (
-        DeviceMotionEvent &&
-        DeviceMotionEvent.requestPermission &&
-        typeof DeviceMotionEvent.requestPermission === 'function'
-    ) {
-        DeviceMotionEvent.requestPermission();
-    };
-    if (
-        DeviceOrientationEvent &&
-        DeviceOrientationEvent.requestPermission &&
-        typeof DeviceOrientationEvent.requestPermission === 'function'
-    ) {
-        DeviceOrientationEvent.requestPermission();
-    };
-};
  
 // ボールをクラス化
 class Ball {
@@ -154,6 +137,5 @@ function collision(obj1, obj2) {
     }
 }
 </script>
- <button onclick="request_permission()"></button>
  </body>
 </html>
