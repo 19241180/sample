@@ -1,6 +1,7 @@
 <title>無重力に挑戦！</title>
 </head>
- 
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"> 
 <body>
 <div id="txt">ここにスコアを表示</div>             <!-- スコアを表示するdiv要素 -->
 <canvas id="canvas" width="300" height="400"></canvas>  <!-- ボールを描くcanvas要素 -->
@@ -9,6 +10,12 @@
 var aX = 0, aY = 0, aZ = 0;                     // 加速度の値を入れる変数を3個用意
 var canvas = document.getElementById('canvas'); // canvas要素を取得 
 var context = canvas.getContext('2d');          // 絵を描く部品を取得
+ 
+ window.addEventListener("devicemotion", (dat) => {
+    aX = dat.accelerationIncludingGravity.x;    // x軸の重力加速度（Android と iOSでは正負が逆）
+    aY = dat.accelerationIncludingGravity.y;    // y軸の重力加速度（Android と iOSでは正負が逆）
+    aZ = dat.accelerationIncludingGravity.z;    // z軸の重力加速度（Android と iOSでは正負が逆）
+});
  
 // ボールをクラス化
 class Ball {
