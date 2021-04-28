@@ -11,11 +11,7 @@
 <canvas id="canvas" width="300" height="400"></canvas>  <!-- ボールを描くcanvas要素 -->
  
 <script>
-var aX = 0, aY = 0, aZ = 0;                     // 加速度の値を入れる変数を3個用意
-var canvas = document.getElementById('canvas'); // canvas要素を取得 
-var context = canvas.getContext('2d');          // 絵を描く部品を取得
- 
- function request_permission() {
+  function request_permission() {
     if (
         DeviceMotionEvent &&
         DeviceMotionEvent.requestPermission &&
@@ -31,6 +27,12 @@ var context = canvas.getContext('2d');          // 絵を描く部品を取得
         DeviceOrientationEvent.requestPermission();
     };
 };
+ 
+var aX = 0, aY = 0, aZ = 0;                     // 加速度の値を入れる変数を3個用意
+var canvas = document.getElementById('canvas'); // canvas要素を取得 
+var context = canvas.getContext('2d');          // 絵を描く部品を取得
+ 
+
 // ボールをクラス化
 class Ball {
     constructor() {                             // コンストラクタ（宣言した時に実行される関数）の定義
